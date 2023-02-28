@@ -1,0 +1,97 @@
+
+<h1 class="heading">Login now</h1>
+<style>
+    .heading{
+        color: #ffffff;
+        padding-top: 3rem;
+    }
+    body{
+        text-align: center;
+        justify-items: center;
+        background-color: rgb(32,33,36);
+        color: rgb(44, 13, 13);
+
+    }
+    form{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color:#ffffff;
+        color:#111 ;
+        margin: 1rem;
+        width: 70%;
+        height: auto;
+        margin-left: 15%;
+        margin-top: 3%;
+        padding-top: 5%;
+        border-radius:3rem ;
+    }
+    label{
+        font-size:2rem;
+        padding: 0.5rem;
+        width: 40%;
+        color: black;
+    }
+    input{
+        font-size:1.5rem;
+        padding: 0.5rem;
+        background-color: aquamarine;
+        text-align: center;
+        border: 2px solid rgb(32,33,36);
+        border-radius:1rem;
+        width: 50%;
+        margin: 2px;
+    }
+    .formdiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 0.2rem;
+    }
+    .submitbutton{
+        margin: 1rem;
+        justify-content: center;
+        justify-items: center;
+        width: 30%;
+        border: 2px solid rgb(32,33,36);
+        border-radius:1rem;
+        color: #ffffff;
+        background-color: #4c646f;
+    }
+    button a{
+        color: #ffffff;
+        font-size:1.5rem;
+        text-decoration: none;
+    }
+
+</style> 
+
+{% for message in messages %}
+{% if message == 'Successfully' %}
+<h3>{{message }}</h3>
+{% else %}
+<h4>{{message }}</h4>
+{% endif %}
+
+{%endfor%}
+
+
+<form action="login" method="POST">
+    {% csrf_token %}
+    <div class="formdiv">
+        <label>Email:</label>
+        <input type="email" name="email">
+    </div>
+    <div class="formdiv">
+        <label>Password:</label>
+        <input type="password" name="password">
+    </div>
+    <div class="formdiv">
+        <button type="submit" class="submitbutton"><a href="index">Or Home</a></button><br>
+        <button type="submit" class="submitbutton"><a href="register">Or SignUp</a></button><br>
+
+        <input type="submit" class="submitbutton">
+    </div>
+
+
+</form>
