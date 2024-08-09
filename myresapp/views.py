@@ -30,7 +30,7 @@ def register(request):
                 return redirect('register')
             else:
                 user=User.objects.create_user(username=username,email=email,password=password)
-                user.save();
+                user.save()
                 messages.info(request,'Successfully registered')
                 return redirect('login')
                 
